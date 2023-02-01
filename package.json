@@ -1,0 +1,27 @@
+{
+  "name": "vue2-playground",
+  "version": "0.0.0",
+  "scripts": {
+    "dev": "vite --host",
+    "serve": "vite --host",
+    "build": "vite build",
+    "preview": "vite preview --port 4173",
+    "lint": "eslint . --ext .vue,.js,.jsx,.cjs,.mjs --fix --ignore-path .gitignore"
+  },
+  "dependencies": {
+    "element-ui": "^2.15.12",
+    "pinia": "^2.0.29",
+    "vant": "^2.12.53",
+    "vue": "^2.7.14",
+    "vue-router": "^3.6.5"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-vue2": "^2.2.0",
+    "@vitejs/plugin-vue2-jsx": "^1.1.0",
+    "eslint": "^8.33.0",
+    "eslint-plugin-vue": "^9.9.0",
+    "sass": "^1.58.0",
+    "terser": "^5.16.2",
+    "vite": "^4.0.4"
+  }
+}
