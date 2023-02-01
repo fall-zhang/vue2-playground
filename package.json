@@ -9,7 +9,9 @@
     "lint": "eslint . --ext .vue,.js,.jsx,.cjs,.mjs --fix --ignore-path .gitignore"
   },
   "dependencies": {
+    "clipboard": "^2.0.11",
     "element-ui": "^2.15.12",
+    "js-beautify": "^1.14.7",
     "pinia": "^2.0.29",
     "vant": "^2.12.53",
     "vue": "^2.7.14",

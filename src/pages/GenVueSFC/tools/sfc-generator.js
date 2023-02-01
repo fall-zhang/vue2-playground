@@ -2,7 +2,6 @@ import beautifier from 'js-beautify'
 import { genVue2JS } from "./js-generator-vue2";
 import beautifierOpts from "./beautifyOpts";
 import { elTemplates } from './elTemplates'
-// import { genVue3JS } from "./js-generator-vue3";
 
 export function buildClassAttr(ctn, defaultClass) {
   const cop = ctn.options

@@ -16,13 +16,9 @@
 
 <script>
 import generatorSFC from './newTools/sfc-generator.js'
-import ImageButton from '@/components/ImageButton/SvgAndContent.vue'
-console.log(ImageButton);
 export default {
   name: 'GenVueSFC',
-  components: {
-
-  },
+  components: {},
   props: {},
   data() {
     return {

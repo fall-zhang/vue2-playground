@@ -1,6 +1,6 @@
 <template>
   <div class="about">
-
+    了解更多详情
   </div>
 </template>
 <script>

@@ -1,11 +1,24 @@
+import BlankRouter from './BlankRouter.vue'
 export default [
   {
-    path: '/genCode',
-    name: 'genCode',
-    // route level code-splitting
-    // this generates a separate chunk (About.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
-    component: () => import('../pages/MainView.vue'),
-    meta: { menuName: "代码生成" }
+    path: '/linktop2',
+    name: 'linktop2',
+    component: BlankRouter,
+    meta: { menuName: "领效2.0" },
+    children: [
+      {
+        path: '/linktop2/genCode',
+        name: 'linktop2-genCode',
+        // (genVueSFC.[hash].js)
+        component: () => import('@/pages/genVueSFC/index.vue'),
+        meta: { menuName: "代码生成" },
+      },
+      {
+        path: '/linktop2/about',
+        name: 'linktop2-about',
+        component: () => import('@/pages/AboutView.vue'),
+        meta: { menuName: "更多" },
+      }
+    ]
   }
 ]

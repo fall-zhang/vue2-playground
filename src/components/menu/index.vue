@@ -1,19 +1,10 @@
 <template>
-  <el-menu :default-openeds="['1', '3']">
-    <el-submenu index="1">
-      <template slot="title"><i class="el-icon-message"></i>导航一</template>
-      <el-menu-item-group>
-        <template slot="title">分组一</template>
-        <el-menu-item index="1-1">选项1</el-menu-item>
-        <el-menu-item index="1-2">选项2</el-menu-item>
-      </el-menu-item-group>
-      <el-menu-item-group title="分组2">
-        <el-menu-item index="1-3">选项3</el-menu-item>
-      </el-menu-item-group>
-      <el-submenu index="1-4">
-        <template slot="title">选项4</template>
-        <el-menu-item index="1-4-1">选项4-1</el-menu-item>
-      </el-submenu>
+  <el-menu :default-openeds="['/linktop2']" @select="onSelectMenu">
+    <el-submenu v-for="route in pageRoutes" :key="route.path" :index="route.path">
+      <template slot="title">{{ route.meta.menuName }}</template>
+      <el-menu-item v-for="children in route.children" :key="children.path" :index="children.path">
+        {{ children.meta.menuName }}
+      </el-menu-item>
     </el-submenu>
     <el-submenu index="2">
       <template slot="title"><i class="el-icon-menu"></i>导航二</template>
@@ -49,7 +40,7 @@
 </template>
 
 <script>
-import pageRoutes from '@/route';
+import pageRoutes from '@/router/pageRoutes.js';
 export default {
   name: 'MainMenu',
   components: {
@@ -58,7 +49,7 @@ export default {
   props: {},
   data() {
     return {
-
+      pageRoutes
     }
   },
   computed: {},
@@ -67,10 +58,15 @@ export default {
 
   },
   mounted() {
-
+    // console.log(pageRoutes);
   },
   methods: {
-
+    onSelectMenu(path) {
+      console.log(this.$route.path);
+      if (this.$route.path !== path) {
+        this.$router.push({ path: path })
+      }
+    }
   }
 }
 </script>

@@ -1,4 +1,4 @@
-import FormValidators, { getRegExp } from "@/utils/validators";
+import FormValidators, { getRegExp } from "../utils/validators";
 
 export function buildRulesListFn(formConfig, widgetList, resultList) {
   return function (fieldWidget) {

@@ -1,5 +1,5 @@
-import { isNotNull, traverseContainerWidgets, traverseFieldWidgets } from "@/utils/util";
-import FormValidators, { getRegExp } from "@/utils/validators";
+import { isNotNull, traverseContainerWidgets, traverseFieldWidgets } from "../utils/util";
+import FormValidators, { getRegExp } from "../utils/validators";
 
 // 
 export function buildDefaultValueListFn(formConfig, widgetList, resultList) {

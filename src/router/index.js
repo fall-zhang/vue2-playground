@@ -1,6 +1,6 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-import HomeView from '../pages/MainView.vue'
+import MainView from '../pages/MainView.vue'
 import pageRoutes from './pageRoutes'
 
 Vue.use(VueRouter)
@@ -12,7 +12,7 @@ const router = new VueRouter({
     {
       path: '/',
       name: 'home',
-      component: HomeView,
+      component: MainView,
       children: pageRoutes
     },
     {
@@ -21,7 +21,12 @@ const router = new VueRouter({
       // route level code-splitting
       // this generates a separate chunk (About.[hash].js) for this route
       // which is lazy-loaded when the route is visited.
-      component: () => import('../pages/AboutView.vue')
+      component: () => import('@/pages/AboutView.vue')
+    },
+    {
+      path: '/',
+      name: 'redirect',
+      redirect: '/linktop2'
     }
   ]
 })
