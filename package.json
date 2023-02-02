@@ -1,6 +1,6 @@
 {
   "name": "vue2-playground",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "scripts": {
     "dev": "vite --host",
     "serve": "vite --host",
