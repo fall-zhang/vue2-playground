@@ -4,24 +4,24 @@ export function buildRulesListFn(formConfig, widgetList, resultList) {
   return function (fieldWidget) {
     const fop = fieldWidget.options
     let fieldRules = []
-    if (!!fop.required) {
+    if (fop.required) {
       fieldRules.push(`{
         required: true,
         message: '字段值不可为空',
       }`)
     }
 
-    if (!!fop.validation) {
+    if (fop.validation) {
       let vldName = fop.validation
-      if (!!FormValidators[vldName]) {
+      if (FormValidators[vldName]) {
         fieldRules.push(`{
-          pattern: ${eval(getRegExp(vldName))},
+          pattern: ${getRegExp(vldName)},
           trigger: ['blur', 'change'],
           message: '${fop.validationHint}'
         }`)
       } else {
         fieldRules.push(`{
-          pattern: '${eval(vldName)}',
+          pattern: '${vldName}',
           trigger: ['blur', 'change'],
           message: '${fop.validationHint}'
         }`)

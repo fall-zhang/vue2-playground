@@ -2,8 +2,8 @@ import getElTemplate from './el-templates'
 function buildClassAttr(ctn, defaultClass) {
   const cop = ctn.options
   let gridClassArray = []
-  defaultClass && gridClassArray.push(defaultClass)
-  cop.customClass && (cop.customClass.length > 0) && gridClassArray.push(cop.customClass.join(' '))
+  !!defaultClass && gridClassArray.push(defaultClass)
+  !!cop.customClass && (cop.customClass.length > 0) && gridClassArray.push(cop.customClass.join(' '))
   return gridClassArray.length > 0 ? `class="${gridClassArray.join(' ')}"` : ''
 }
 
@@ -14,13 +14,13 @@ const containerTemplates = {  //容器组件属性
       `<el-row ${gridClassAttr}>
 ${ctn.cols.map(col => {
         const colOpt = col.options
-        const spanAttr = colOpt.responsive ? '' : `:span="${colOpt.span}"`
+        const spanAttr = !!colOpt.responsive ? '' : `:span="${colOpt.span}"`
         const mdAttr = !colOpt.responsive ? '' : `:md="${colOpt.md}"`
         const smAttr = !colOpt.responsive ? '' : `:sm="${colOpt.sm}"`
         const xsAttr = !colOpt.responsive ? '' : `:xs="${colOpt.xs}"`
-        const offsetAttr = colOpt.offset ? `:offset="${colOpt.offset}"` : ''
-        const pushAttr = colOpt.push ? `:push="${colOpt.push}"` : ''
-        const pullAttr = colOpt.pull ? `:pull="${colOpt.pull}"` : ''
+        const offsetAttr = !!colOpt.offset ? `:offset="${colOpt.offset}"` : ''
+        const pushAttr = !!colOpt.push ? `:push="${colOpt.push}"` : ''
+        const pullAttr = !!colOpt.pull ? `:pull="${colOpt.pull}"` : ''
         const colClassAttr = buildClassAttr(col, 'grid-cell')
         return `<el-col ${spanAttr} ${mdAttr} ${smAttr} ${xsAttr} ${offsetAttr} ${pushAttr} ${pullAttr} ${colClassAttr}>
     ${col.widgetList.map(cw => {
@@ -52,8 +52,8 @@ ${ctn.cols.map(col => {
           const rowspanAttr = (!isNaN(tdOpt.rowspan) && (tdOpt.rowspan !== 1)) ? `rowspan="${tdOpt.rowspan}"` : ''
 
           let tdStyleArray = []
-          tdOpt.cellWidth && tdStyleArray.push('width: ' + tdOpt.cellWidth + ' !important')
-          tdOpt.cellHeight && tdStyleArray.push('height: ' + tdOpt.cellHeight + ' !important')
+          !!tdOpt.cellWidth && tdStyleArray.push('width: ' + tdOpt.cellWidth + ' !important')
+          !!tdOpt.cellHeight && tdStyleArray.push('height: ' + tdOpt.cellHeight + ' !important')
           let tdStyleAttr = (tdStyleArray.length > 0) ? `style="${tdStyleArray.join(';')}"` : ''
 
           return `<td ${tdClassAttr} ${colspanAttr} ${rowspanAttr} ${tdStyleAttr}>${td.widgetList.map(tw => {
@@ -98,7 +98,7 @@ ${ctn.cols.map(col => {
     return tabTemplate
   },
   'sub-form': (ctn, formConfig) => {
-    //TODO
+    //TODO:
   },
 }
 

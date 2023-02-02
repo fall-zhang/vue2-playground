@@ -1,4 +1,6 @@
-import { isNull } from "./util";
+function isNull(value) {
+  return (value === null) || (value === undefined);
+}
 
 export const getRegExp = function (validatorName) {
   const commonRegExp = {
@@ -89,22 +91,6 @@ const FormValidators = {
   url(rule, value, callback) {
     validateFn('url', rule, value, callback, '[' + rule.label + ']URL格式有误')
   },
-
-  /*测试
-  test(rule, value, callback, errorMsg) {
-    //空值不校验
-    if (isNull(value) || (value.length <= 0)) {
-      callback()
-      return
-    }
-
-    if (value < 100) {
-      callback(new Error('[' + rule.label + ']不能小于100'))
-    } else {
-      callback()
-    }
-  },
-  */
 
   regExp(rule, value, callback) {
     //空值不校验

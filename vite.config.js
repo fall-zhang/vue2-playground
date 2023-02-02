@@ -1,7 +1,6 @@
 import { fileURLToPath, URL } from 'node:url'
 
 import { defineConfig } from 'vite'
-// import { resolve as resolvePath } from 'path'
 import vue2 from '@vitejs/plugin-vue2'
 import vue2Jsx from '@vitejs/plugin-vue2-jsx'
 
@@ -17,8 +16,6 @@ export default defineConfig({
   resolve: {
     alias: {
       '@': fileURLToPath(new URL('./src', import.meta.url))
-      // eslint-disable-next-line no-undef
-      // '@': resolvePath(__dirname, 'src')
     }
   }
 })
